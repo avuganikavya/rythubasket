@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: green;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  background: url('images/veggies-banner.jpg') no-repeat center center/cover;
+  color: white;
+  padding: 3rem;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  background: orange;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/* Buyer Section */
+.buyers-section {
+  padding: 2rem;
+  background: #fff;
+}
+
+.veggie-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.card {
+  background: #f0f0f0;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.badge {
+  display: inline-block;
+  background: red;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+.payment, .delivery {
+  margin-top: 2rem;
+}
+
+.payment button {
+  margin-right: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  background: green;
+  color: white;
+  border-radius: 5px;
+}
+
+.delivery img {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+/* Seller Section */
+.sellers-section {
+  padding: 2rem;
+  background: #e8f5e9;
+}
+
+.farmer-list {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.farmer-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.farmer-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+.voice-search {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.mic-btn {
+  background-color: #ff5722;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+#voiceResult {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #333;
+}
+
+.highlight {
+  border: 3px solid #4caf50;
+  box-shadow: 0 0 15px 5px rgba(76, 175, 80, 0.4);
+  transition: all 0.3s ease;
+}

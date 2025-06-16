@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RythuBasket – రైతులకు మరియు కొనుగోలుదారులకు</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🌾 RythuBasket</h1>
+    <nav>
+      <a href="#">Home – మొదటి పేజీ</a>
+      <a href="#buyers">Buyers – కొనుగోలుదారులు</a>
+      <a href="#sellers">Sellers – రైతులు</a>
+      <a href="#contact">Contact – సంప్రదించండి</a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h2>తాజా కూరగాయలు – ఇంటికే</h2>
+    <p>Fresh vegetables from local farmers – స్థానిక రైతుల నుంచి నేరుగా మీ ఇంటికి.</p>
+    <a href="#buyers" class="btn">Order Now – ఆర్డర్ చేయండి</a>
+  </section>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RythuBasket – రైతులకు మరియు కొనుగోలుదారులకు</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="voice-search">
+  <h3>Search by Voice – మాట ద్వారా వెతకండి</h3>
+  <button onclick="startListening()" class="mic-btn">🎤 Tap to Speak – మాట్లాడు</button>
+  <p id="voiceResult">🎧 Voice Input: (Not yet received)</p>
+</div>
+
+  <!-- Buyer Section -->
+  <section id="buyers" class="buyers-section">
+    <h2>Available Vegetables – లభ్యమయ్యే కూరగాయలు</h2>
+    <div class="veggie-container">
+
+      <div class="card">
+        <img src="images/tomato.jpg" alt="Tomato" />
+        <h3>Tomato – టమోటా</h3>
+        <p>₹30/kg</p>
+        <span class="badge offer">Fresh – తాజా</span>
+        <button>Add to Cart – కార్ట్‌లో పెట్టండి</button>
+      </div>
+
+      <div class="card">
+        <img src="images/potato.jpg" alt="Potato" />
+        <h3>Potato – బంగాళాదుంప</h3>
+        <p>₹20/kg</p>
+        <span class="badge offer">10% Off – తగ్గింపు</span>
+        <button>Add to Cart – కార్ట్‌లో పెట్టండి</button>
+      </div>
+
+    </div>
+
+    <div class="payment">
+      <h3>Payment Options – చెల్లింపు విధానాలు</h3>
+      <button>💵 Cash on Delivery – డబ్బు వస్తే చెల్లించండి</button>
+      <button>💳 Online Payment – ఆన్‌లైన్ చెల్లింపు</button>
+    </div>
+
+    <div class="delivery">
+      <h3>🚚 Order Status – ఆర్డర్ స్థితి: ✅ Confirmed – ధృవీకరించబడింది</h3>
+      <img src="images/map.jpg" alt="Delivery Map" />
+    </div>
+  </section>
+
+  <!-- Seller Section -->
+  <section id="sellers" class="sellers-section">
+    <h2>Our Farmers – మన రైతులు</h2>
+    <div class="farmer-list">
+
+      <div class="farmer-card">
+        <img src="images/farmer1.jpg" alt="Farmer Ramesh" />
+        <p>👨‍🌾 Name: Ramesh – రమేష్</p>
+        <p>📍 Village: Warangal – వరంగల్</p>
+        <p>🥦 Vegetable: Tomato – టమోటా</p>
+        <p>Status: ✅ In Stock – లభ్యం</p>
+      </div>
+
+      <div class="farmer-card">
+        <img src="images/farmer1.jpg" alt="Farmer Sita" />
+        <p>👩‍🌾 Name: Sita – సీత</p>
+        <p>📍 Village: Karimnagar – కరీంనగర్</p>
+        <p>🍆 Vegetable: Brinjal – వంకాయ</p>
+        <p>Status: ❌ Out of Stock – లభ్యం కాదు</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>📞 Contact: 9999XXXXXX | Email: rythubasket@email.com</p>
+    <p>💬 తెలుగు సహాయం అందుబాటులో ఉంది</p>
+  </footer>
+<script>
+  function startListening() {
+    const output = document.getElementById("voiceResult");
+    output.innerText = "🎧 Listening... (మాట్లాడండి)";
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "te-IN"; // Telugu (change to "en-IN" for English)
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+
+    recognition.onresult = function (event) {
+      const transcript = event.results[0][0].transcript.toLowerCase().trim();
+      output.innerText = `🎧 Voice Input: ${transcript}`;
+
+      const cards = document.querySelectorAll(".veggie-card");
+      let found = false;
+
+      cards.forEach(card => {
+        const vegName = card.querySelector("h3").innerText.toLowerCase();
+        if (vegName.includes(transcript)) {
+          card.scrollIntoView({ behavior: "smooth", block: "center" });
+          card.classList.add("highlight");
+          found = true;
+
+          setTimeout(() => {
+            card.classList.remove("highlight");
+          }, 3000);
+        }
+      });
+
+      if (!found) {
+        output.innerText += "\n❌ Item not found (కూరగాయ లభించలేదు)";
+      }
+    };
+
+    recognition.onerror = function (event) {
+      output.innerText = `❌ Error: ${event.error}`;
+    };
+  }
+</script>
+
+</body>
+</html>
